@@ -5,3 +5,15 @@ node_modules/
 dist/
 .env
 uploads/
+
+# Engine fetched at Docker build time (not versioned here)
+openmontage_engine/
+
+# Generated artifacts
+sample_output/
+projects/
+media/
+
+# Runtime media inputs (provide your own clip, not versioned)
+*.mp4
+reference_video.mp4

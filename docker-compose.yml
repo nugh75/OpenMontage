@@ -1,0 +1,24 @@
+services:
+  openmontage:
+    build: .
+    image: openmontage:latest
+    container_name: openmontage
+    restart: unless-stopped
+    ports:
+      # host 8502 -> container 8501 (8501 lasciata libera per ai-q.ai4educ.org)
+      - "8502:8501"
+    env_file:
+      - .env
+    environment:
+      # Map the ai4educ .env var to the conventional Ollama variable too.
+      OLLAMA_HOST: "${ANALISI_PDF_OLLAMA_HOST:-http://localhost:11434}"
+    extra_hosts:
+      # Lets the container fall back to the host gateway when the LAN IP in
+      # .env is only routable from the host (Docker Desktop / WSL2).
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - ./sample_output:/app/sample_output
+      - ./projects:/app/projects
+      # To enable rendering, drop a short clip in ./media/reference_video.mp4
+      # and uncomment the line below (the file MUST exist before `up`).
+      # - ./media/reference_video.mp4:/app/reference_video.mp4:ro

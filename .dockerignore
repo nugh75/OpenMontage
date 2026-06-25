@@ -1,0 +1,21 @@
+.git
+.gitignore
+.venv
+__pycache__
+*.pyc
+.pytest_cache
+node_modules
+dist
+uploads
+.env
+.ai4educ
+Dockerfile
+docker-compose.yml
+.dockerignore
+README.md
+
+# Engine is cloned during build, not copied from context
+openmontage_engine
+sample_output
+projects
+media
