@@ -20,5 +20,5 @@ services:
       - ./sample_output:/app/sample_output
       - ./projects:/app/projects
       # To enable rendering, drop a short clip in ./media/reference_video.mp4
-      # and uncomment the line below (the file MUST exist before `up`).
-      # - ./media/reference_video.mp4:/app/reference_video.mp4:ro
+      # (the file MUST exist before `up`).
+      - ./media/reference_video.mp4:/app/reference_video.mp4:ro
